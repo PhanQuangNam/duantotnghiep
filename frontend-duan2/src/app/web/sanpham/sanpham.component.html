@@ -1,0 +1,128 @@
+<div class="" style="background-color: azure">
+  <div class="container mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="dropdown-content-title mb-2"><h3>Menu</h3></div>
+        <div class="border border-dark
+         rounded">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="/home/trangchu">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/gioithieu">Giới thiệu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sanpham">Sản phẩm</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tin tức</a>
+            </li>
+            <li class="nav_item">
+              <a class="nav-link" href="">Liên hệ</a>
+            </li>
+          </ul>
+        </div>
+        <div class="mt-3">
+          <div class="alert alert-primary">
+            <h3>Bộ lọc tìm kiếm</h3>
+          </div>
+        </div>
+        <div class="">
+          <h4>Thương hiệu</h4>
+          <hr style="color: red" width="100%">
+        </div>
+        <div class="">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck">
+          <label class="form-check-label" for="defaultCheck1">
+            Nike
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Adidas
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+          <label class="form-check-label" for="defaultCheck1">
+            Puma
+          </label>
+        </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+            <label class="form-check-label" for="defaultCheck1">
+              Under Armour
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+            <label class="form-check-label" for="defaultCheck1">
+              Kapa
+            </label>
+          </div><div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+          <label class="form-check-label" for="defaultCheck1">
+            Xstorm
+          </label>
+        </div>
+        </div>
+
+      </div>
+      <div class="col-md-9" >
+        <h2 class="section-title-heading"><a href="/" >Tất cả sản phẩm</a></h2><hr color="red" width="100%">
+        <div class="row" >
+          <div class="col-md-4 product-men" *ngFor="let product of products | slice: (page-1) * pageSize:(page-1) * pageSize + pageSize; index as i">
+            <div class="men-pro-item simpleCart_shelfItem">
+              <div class="men-thumb-item">
+                <img src="{{product.img1}}" alt="" >
+                <!--                <img src="{{product.img2}}" alt="" class="pro-image-back">-->
+                <div class="men-cart-pro">
+                  <div class="inner-men-cart-pro">
+                    <a href="/thongtinsanpham/{{product.id}}" class="link-product-add-cart">Quick View</a>
+                  </div>
+                </div>
+                <span class="product-new-top">New</span>
+              </div>
+              <div class="item-info-product ">
+                <h4><a href="/thongtinsanpham/{{product.id}}">{{product.name}}</a></h4>
+                <div class="info-product-price">
+                  <span class="item_price">{{product.price1}} vnđ</span><br/>
+                  <!--                  <del>${{product.price2}}</del>-->
+                </div>
+                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                  <form action="#" method="post">
+                    <fieldset>
+                      <input type="hidden" name="cmd" value="_cart" />
+                      <input type="hidden" name="add" value="1" />
+                      <input type="hidden" name="business" value=" " />
+                      <input type="hidden" name="item_name" value="{{product.name}}" />
+                      <input type="hidden" name="amount" value="{{product.price1}}" />
+                      <input type="hidden" name="discount_amount" value="{{product.price2}}" />
+                      <input type="hidden" name="currency_code" value="USD" />
+                      <input type="hidden" name="return" value=" " />
+                      <input type="hidden" name="cancel_return" value=" " />
+                      <input type="submit" name="submit" value="Add to cart" class="button" />
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid mt-3" *ngIf ="products">
+          <div class="row d-flex justify-content-end">
+            <ngb-pagination
+              [(page)]="page"
+              [pageSize]="pageSize"
+              [collectionSize]="products.length">
+            </ngb-pagination>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

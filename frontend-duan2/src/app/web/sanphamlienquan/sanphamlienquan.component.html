@@ -1,0 +1,45 @@
+<div style="background-color: azure">
+  <div class="container">
+    <hr color="red" width="100%">
+    <div class="dropdown-content-title"><h3>Sản phẩm Liên quan</h3></div>
+    <div class="row" >
+      <div class="col-md-3 product-men" *ngFor="let product of products ; index as i">
+        <div class="men-pro-item simpleCart_shelfItem">
+          <div class="men-thumb-item">
+            <img src="{{product.img1}}" alt="" >
+            <!--                <img src="{{product.img2}}" alt="" class="pro-image-back">-->
+            <div class="men-cart-pro">
+              <div class="inner-men-cart-pro">
+                <a href="/thongtinsanpham/{{product.id}}" class="link-product-add-cart">Quick View</a>
+              </div>
+            </div>
+            <span class="product-new-top">New</span>
+          </div>
+          <div class="item-info-product ">
+            <h4><a href="/thongtinsanpham/{{product.id}}">{{product.name}}</a></h4>
+            <div class="info-product-price">
+              <span class="item_price">{{product.price1}} vnđ</span><br/>
+              <!--                  <del>${{product.price2}}</del>-->
+            </div>
+            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+              <form action="#" method="post">
+                <fieldset>
+                  <input type="hidden" name="cmd" value="_cart" />
+                  <input type="hidden" name="add" value="1" />
+                  <input type="hidden" name="business" value=" " />
+                  <input type="hidden" name="item_name" value="{{product.name}}" />
+                  <input type="hidden" name="amount" value="{{product.price1}}" />
+                  <input type="hidden" name="discount_amount" value="{{product.price2}}" />
+                  <input type="hidden" name="currency_code" value="USD" />
+                  <input type="hidden" name="return" value=" " />
+                  <input type="hidden" name="cancel_return" value=" " />
+                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

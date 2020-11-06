@@ -1,0 +1,77 @@
+<div class="main-content">
+    <div class="panel-body widget-shadow">
+        <div class="forms">
+            <h2 class="title1">Thêm sản phẩm</h2>
+            <div class="form-grids widget-shadow">
+                <div class="row p-5" >
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">ID sản phẩm</label>
+                                <input type="text" class="form-control1"  [(ngModel)]="Sanpham.product_id" name="product_id">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Tên sản phẩm</label>
+                                <input type="text" class="form-control1" [(ngModel)]="Sanpham.product_name" name="product_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Giá sản phẩm</label>
+                                <input type="text" class="form-control1" [(ngModel)]="Sanpham.product_price" name="product_price">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Thể loại</label>
+                                <select [(ngModel)]="CategorySelected" (ngModelChange)="onCategorySelected($event)" class="custom-select" id="" name="Category" required>
+                                    <option selected>Lựa chọn</option>
+                                    <option *ngFor="let c of Category" [ngValue]="c" >{{c.category_name}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Size</label>
+                                    <select [(ngModel)]="SizeSelected" (ngModelChange)="onSizeSelected($event)" class="custom-select" id="" name="Size" required>
+                                        <option selected>Lựa chọn</option>
+                                        <option *ngFor="let s of Size" [ngValue]="s" >{{s.size_name}}</option>
+                                    </select>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <!-- <div class="form-group">
+                                <label for="exampleInputFile">Chọn ảnh</label>
+                                <input type="file" id="exampleInputFile">
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>  -->
+                            <div class="form-group">
+                                <label for="">img</label>
+                                <input type="text" class="form-control1" id="5" [(ngModel)]="Sanpham.product_img" name="product_img" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Số lượng sản phẩm</label>
+                                <input type="text" class="form-control1" id="6" [(ngModel)]="Sanpham.product_amount" name="product_amount" >
+                            </div>
+                            <div class="form-group">
+                                <label for="">Stock sản phẩm</label>
+                                <input type="text" class="form-control1" id="7" [(ngModel)]="Sanpham.product_stock" name="product_stock">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Trạng thái sản phẩm</label>
+                                <input type="text" class="form-control1" id="8" [(ngModel)]="Sanpham.product_status" name="product_status" >
+                            </div>
+                            <div class="form">
+                                <label for="">Mô tả sản phẩm</label>
+                                <input type="text" class="form-control1" id="9" [(ngModel)]="Sanpham.product_description" name="product_description">
+                            </div>
+                        </div>
+
+                        <div class="container-fluid">
+                          <div class="row d-flex justify-content-end">
+                            <div class="col-md-3">
+                              <button type="button" class="btn btn-danger mr-3" routerLink="/dashboard/quanly-sanpham">Hủy</button>
+                              <button type="button" class="btn btn-primary" (click)="onSubmit()">Thêm mới</button>
+                            </div>
+                          </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
