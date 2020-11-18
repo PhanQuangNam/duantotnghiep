@@ -1,5 +1,4 @@
 import { Category } from 'src/app/model/Category';
-import { Size } from 'src/app/model/Size';
 
 export class Sanpham{
   product_id: String;
@@ -8,8 +7,6 @@ export class Sanpham{
   product_price : number;
   product_img: String;
   product_amount : number;
-  size_id : Size;
-  size_name : Size;
   category_id : Category;
   category_name : Category;
   product_stock : number;

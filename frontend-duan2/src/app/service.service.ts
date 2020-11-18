@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Product } from './Product';
-import { Sanpham } from'./model/Sanpham';
 import { HttpClient } from '@angular/common/http';
 import { Observable, observable } from 'rxjs';
+import { Users } from './model/Users';
+import { Products } from './model/Product';
 
 @Injectable({
   providedIn: 'root'
@@ -34,38 +35,60 @@ export class ServiceService {
   }
 
   //sản phẩm
-  
-  getSanpham(){
-    return this.http.get(this.baseUrl+"getSanpham");
+  getProductSP(){
+    return this.http.get(this.baseUrl + "getallProduct");
   }
-
-  getSanphamId(product_id : number):Observable<any>{
-    return this.http.get(this.baseUrl+"getSanpham/"+product_id);
+  getProductid(product_id : number) : Observable<any>{
+    return this.http.get(this.baseUrl + "getProductid/" + product_id );
   }
-
-  deleteSanpham(Sanpham : number):Observable<any>{
-    return this.http.delete(this.baseUrl+"Sanpham/"+Sanpham);
+  deleteProduct(product_id : number):Observable<any>{
+    return this.http.delete(this.baseUrl+"deleteProduct/"+ product_id);
   }
-
-  createSanpham(Sanpham: Object): Observable<Object>{
-    return this.http.post(this.baseUrl+"createSanpham",Sanpham);
+  CreateProduct(Products : Object) : Observable<any>{
+    return this.http.post(this.baseUrl +"CreateProduct" +
+      "",Products);
   }
-
-  updateSanpham(product_id:string, Sanpham: Sanpham): Observable<any>{
-    return this.http.put<any>(this.baseUrl + `updateSanpham/${product_id}`, Sanpham);
+  public updateProduct(product_id: number, Products : Products): Observable<any>{
+    return this.http.put<any>(this.baseUrl + `updateProduct/${product_id}`, Products);
   }
-
-
-  //Size
-
-  getSize(){
-    return this.http.get(this.baseUrl+"getSize");
-  }
-
-  //Category
 
   getCategory(){
     return this.http.get(this.baseUrl+"getCategory");
   }
+
+
+  // tài khoản
+
+  getUsers(){
+    return this.http.get(this.baseUrl + "getUsers");
+  }
+  getUsersAD(){
+    return this.http.get(this.baseUrl + "getUsersAD");
+  }
+  getUsersNV(){
+    return this.http.get(this.baseUrl + "getUsersNV");
+  }
+  getUsersKH(){
+    return this.http.get(this.baseUrl + "getUsersKH");
+  }
+  getUsersID(users_id : number) : Observable<any>{
+    return this.http.get(this.baseUrl + "getUsersid/" + users_id );
+  }
+  createUsers(Users : Object) : Observable<any>{
+    return this.http.post(this.baseUrl + "createUsers" ,Users)
+  }
+
+  // SeachUsers(users_first_name : String , users_last_name : String , users_account : String){
+  //   return this.http.get(this.baseUrl + "SeachUsers/" + users_account);
+  // }
+
+  deleteUsers(users_id : number) :Observable<any>{
+    return  this.http.delete(this.baseUrl + "deleteUsers/" + users_id)
+  }
+
+  public updateUsers(users_id: number, Users : Users): Observable<any>{
+    return this.http.put<any>(this.baseUrl + `updateUsers/${users_id}`, Users);
+  }
+
 
 }

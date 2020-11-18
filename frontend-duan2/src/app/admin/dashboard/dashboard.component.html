@@ -12,7 +12,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   <link href='/../assets/css/SidebarNav.min.css' media='all' rel='stylesheet' type='text/css'/>
   <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
   <link href="/../assets/css/custom.css" rel="stylesheet">
-  <!--//Metis Menu -->
   <style>
     #chartdiv {
       width: 100%;
@@ -39,86 +38,27 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
               <a href="/dashboard">
-                 <span>Dashboard</span>
+                <span>Dashboard</span>
               </a>
             </li>
             <li class="treeview">
               <a routerLink="/dashboard/quanly-sanpham">
                 <span>Quản lý sản phẩm</span>
               </a>
-              <ul class="treeview-menu">
-                <li><a href="grids.html"><i class="fa fa-angle-right"></i> Grids</a></li>
-                <li><a href="media.html"><i class="fa fa-angle-right"></i> Media Css</a></li>
-              </ul>
             </li>
-            <li class="treeview">
-              <a href="charts.html">
-                <i class="fa fa-pie-chart"></i>
-                <span>Charts</span>
-                <span class="label label-primary pull-right">new</span>
-              </a>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Quản lý tài khoản</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" routerLink="/dashboard/quanly-taikhoan">Admin</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a class="dropdown-item" routerLink="/dashboard/quanly-taikhoan-nv">Nhân viên</a>
+                <a class="dropdown-item" routerLink="/dashboard/quanly-taikhoan-kh">Khách hàng</a>
+              </div>
             </li>
-            <li class="treeview">
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-laptop"></i>
-                <span>UI Elements</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="general.html"><i class="fa fa-angle-right"></i> General</a></li>
-                <li><a href="icons.html"><i class="fa fa-angle-right"></i> Icons</a></li>
-                <li><a href="buttons.html"><i class="fa fa-angle-right"></i> Buttons</a></li>
-                <li><a href="typography.html"><i class="fa fa-angle-right"></i> Typography</a></li>
-              </ul>
-            </li>
+
             <li>
-              <a href="widgets.html">
-                <i class="fa fa-th"></i> <span>Widgets</span>
-                <small class="label pull-right label-info">08</small>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-edit"></i> <span>Forms</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="forms.html"><i class="fa fa-angle-right"></i> General Forms</a></li>
-                <li><a href="validation.html"><i class="fa fa-angle-right"></i> Form Validations</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-table"></i> <span>Tables</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="tables.html"><i class="fa fa-angle-right"></i> Simple tables</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-envelope"></i> <span>Mailbox </span>
-                <i class="fa fa-angle-left pull-right"></i><small class="label pull-right label-info1">08</small><span class="label label-primary1 pull-right">02</span></a>
-              <ul class="treeview-menu">
-                <li><a href="inbox.html"><i class="fa fa-angle-right"></i> Mail Inbox </a></li>
-                <li><a href="compose.html"><i class="fa fa-angle-right"></i> Compose Mail </a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-folder"></i> <span>Examples</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="login.html"><i class="fa fa-angle-right"></i> Login</a></li>
-                <li><a href="signup.html"><i class="fa fa-angle-right"></i> Register</a></li>
-                <li><a href="404.html"><i class="fa fa-angle-right"></i> 404 Error</a></li>
-                <li><a href="500.html"><i class="fa fa-angle-right"></i> 500 Error</a></li>
-                <li><a href="blank-page.html"><i class="fa fa-angle-right"></i> Blank Page</a></li>
-              </ul>
-            </li>
+
             <li class="header">LABELS</li>
             <li><a href="#"><i class="fa fa-angle-right text-red"></i> <span>Important</span></a></li>
             <li><a href="#"><i class="fa fa-angle-right text-yellow"></i> <span>Warning</span></a></li>
@@ -134,16 +74,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
   <div class="sticky-header header-section ">
     <div class="header-right">
-<!--      <div class="search-box">-->
-<!--        <form class="input">-->
-<!--          <input class="sb-search-input input__field&#45;&#45;madoka" placeholder="Search..." type="search" id="input-31" />-->
-<!--          <label class="input__label" for="input-31">-->
-<!--            <svg class="graphic" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">-->
-<!--              <path d="m0,0l404,0l0,77l-404,0l0,-77z"/>-->
-<!--            </svg>-->
-<!--          </label>-->
-<!--        </form>-->
-<!--      </div>&lt;!&ndash;//end-search-box&ndash;&gt;-->
 
       <div class="profile_details">
         <ul>
@@ -182,3 +112,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 </div>
 </body>
 </html>
+
+
+
+

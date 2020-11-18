@@ -19,7 +19,6 @@ import { ServiceService } from './service.service';
 import { SlideComponent } from './web/slide/slide.component';
 import { HeaderComponent } from './web/header/header.component';
 import { FooterComponent } from './web/footer/footer.component';
-import { Home1Component } from './web/home1/home1.component';
 import { ThongtinsanphamComponent } from './web/thongtinsanpham/thongtinsanpham.component';
 import { SanphamlienquanComponent } from './web/sanphamlienquan/sanphamlienquan.component';
 import { QuanlySanphamComponent } from './admin/quanly-sanpham/quanly-sanpham.component';
@@ -31,6 +30,11 @@ import { Thongtinsanpham1Component } from './web/thongtinsanpham1/thongtinsanpha
 import { QuanlyTaikhoanComponent } from './admin/quanly-taikhoan/quanly-taikhoan.component';
 import { AddTaikhoanComponent } from './admin/add-taikhoan/add-taikhoan.component';
 import { EditTaikhoanComponent } from './admin/edit-taikhoan/edit-taikhoan.component';
+import { Header1Component } from './web/header1/header1.component';
+import { QuanlyTaikhoanNvComponent } from './admin/quanly-taikhoan-nv/quanly-taikhoan-nv.component';
+import { QuanlyTaikhoanKhComponent } from './admin/quanly-taikhoan-kh/quanly-taikhoan-kh.component';
+import { AddTaikhoanNvComponent } from './admin/add-taikhoan-nv/add-taikhoan-nv.component';
+import { AddTaikhoanKhComponent } from './admin/add-taikhoan-kh/add-taikhoan-kh.component';
 
 
 @NgModule({
@@ -45,7 +49,6 @@ import { EditTaikhoanComponent } from './admin/edit-taikhoan/edit-taikhoan.compo
     SlideComponent,
     HeaderComponent,
     FooterComponent,
-    Home1Component,
     ThongtinsanphamComponent,
     SanphamlienquanComponent,
     QuanlySanphamComponent,
@@ -57,6 +60,11 @@ import { EditTaikhoanComponent } from './admin/edit-taikhoan/edit-taikhoan.compo
     QuanlyTaikhoanComponent,
     AddTaikhoanComponent,
     EditTaikhoanComponent,
+    Header1Component,
+    QuanlyTaikhoanNvComponent,
+    QuanlyTaikhoanKhComponent,
+    AddTaikhoanNvComponent,
+    AddTaikhoanKhComponent,
 
   ],
   imports: [

@@ -1,56 +1,55 @@
-<div class="main-content">
-    <div class="panel-body widget-shadow">
-      <h4>Basic Table:</h4>
-      <table class="table">
-        <thead>
-        <tr>
-          <th>#</th>
-          <th>Tên sản phẩm</th>
-          <th>Ảnh</th>
-          <th>Giá</th>
-          <th>Mô tả</th>
-          <th>Size</th>
-          <th>Thể loại</th>
-          <th>Trạng thái</th>
-          <th>số lượng</th>
-          <th scope="col">
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-          </svg>
-        </th>
-        <th scope="col">
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-              </svg>
-        </th>
-        </tr>
-        </thead>
-        <tbody *ngFor ="let Sanpham of sanphams ; index as i">
-          <tr>
-            <td scope="row">{{i+1}}</td>
-            <td>{{Sanpham.product_name}}</td>
-            <td>{{Sanpham.product_img}}</td>
-            <td>{{Sanpham.product_price}}</td>
-            <td>{{Sanpham.product_description}}</td>
-            <td>{{Sanpham.Size_name}}</td>
-            <td>{{Sanpham.Category_name}}</td>
-            <td>{{Sanpham.product_status}}</td>
-            <td>{{Sanpham.product_amount}}</td>
-            <td><button class="btn btn-success">Sửa</button></td>
-            <td><button class="btn btn-danger">Xóa</button></td>
-          </tr>
-        </tbody>
-      </table>
-<!--      <div class="container-fluid px-5">-->
-<!--        <div class="row d-flex justify-content-end" *ngIf="sanphams">-->
-<!--          <ngb-pagination-->
-<!--            [(page)]="page"-->
-<!--            [pageSize]="pageSize"-->
-<!--            [collectionSize]="sanphams.length">-->
-<!--          </ngb-pagination>-->
-<!--        </div>-->
-<!--      </div>-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Classy Login form Widget Flat Responsive Widget Template :: w3layouts</title>
+  <script src="js/jquery.min.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="Classy Login form Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+  <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="header">
+  <div class="header-main">
+    <h1>Classy Login Form</h1>
+    <div class="header-bottom">
+      <div class="header-right w3agile">
+
+        <div class="header-left-bottom agileinfo">
+
+          <form action="#" method="post">
+            <input type="text"  value="User name" name="name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'User name';}"/>
+            <input type="password"  value="Password" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}"/>
+            <div class="remember">
+			             <span class="checkbox1">
+							   <label class="checkbox"><input type="checkbox" name="" checked=""><i> </i>Remember me</label>
+						 </span>
+              <div class="forgot">
+                <h6><a href="#">Forgot Password?</a></h6>
+              </div>
+              <div class="clear"> </div>
+            </div>
+            <input type="submit" value="Login" routerLink="/home/trangchu">
+          </form>
+          <div class="header-left-top">
+            <div class="sign-up"> <h2>or</h2> </div>
+
+          </div>
+          <div class="header-social wthree">
+            <a href="#" class="face"><h5>Facebook</h5></a>
+            <a href="#" class="twitt"><h5>Twitter</h5></a>
+          </div>
+
+        </div>
+      </div>
+
     </div>
+  </div>
 </div>
+<div class="copyright">
+  <p><span>C</span>hào mừng đến với <span>H</span>ola Shop</p>
+</div>
+</body>
+</html>

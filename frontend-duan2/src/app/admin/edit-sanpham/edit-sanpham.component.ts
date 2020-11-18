@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../service.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Sanpham } from'../../model/Sanpham';
-import { Size } from 'src/app/model/Size';
+import { Products } from '../../model/Product';
 import { Category } from 'src/app/model/Category';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,10 +11,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./edit-sanpham.component.scss']
 })
 export class EditSanphamComponent implements OnInit {
-  Sanpham : Sanpham = new Sanpham();
-  Size : Size[];
+  Products : Products ;
   Category : Category[];
-  SizeSelected: any = {};
   CategorySelected: any = {};
 
   constructor(
@@ -26,49 +23,64 @@ export class EditSanphamComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getSanphamId();
+    this.getProductid();
     this.upData();
   }
 
   upData(){
-    this.ServiceService.getSize().subscribe((data : any[]) =>{
-      this.Size = data })
     this.ServiceService.getCategory().subscribe((data : any[]) => {
       this.Category = data })
-  }
-
-  onSizeSelected( val : Size){
-    this.SizeSelected = val
   }
   onCategorySelected(val : Category){
     this.CategorySelected = val
   }
 
-  getSanphamId() {
+  getProductid() {
     this.activate.params.subscribe((param) => {
-      this.ServiceService.getSanphamId(param.product_id).subscribe((data) => {
+      this.ServiceService.getProductid(param.product_id).subscribe((data) => {
         console.log(data);
-        this.Sanpham = data;
+        this.Products = data;
       });
     });
   }
 
   save() {
     const product_id = this.activate.snapshot.params.product_id
-    this.Sanpham.size_name = this.SizeSelected;
-    this.Sanpham.category_name = this.CategorySelected;
-    console.log(this.Sanpham)
-    this.ServiceService.updateSanpham(product_id,this.Sanpham).subscribe(
-      (data) => {  
-        console.log(data);   
-        this.router.navigate(['/dashboard/quanly-sanpham']);
-       },
-       err => {
-        console.log(err)
-       },
-       
-    )
-    this.Sanpham = new Sanpham();
+    this.Products.category_id = this.CategorySelected;
+    console.log(this.Products)
+    this.ServiceService.updateProduct(product_id,this.Products).subscribe(
+      (data) => {this.gotoList(),console.log(data) },
+       err => {console.log(err)});
+    }
+  gotoList() {
+    if (confirm("Sửa sản phẩm thành công")) {
+      this.router.navigate(['/dashboard/quanly-sanpham']);
+    }
+  }
+
+  url;
+  msg = "";
+
+  selectFile(event) {
+    if(!event.target.files[0] || event.target.files[0].length == 0) {
+      this.msg = 'You must select an image';
+      return;
+    }
+
+    var mimeType = event.target.files[0].type;
+
+    if (mimeType.match(/image\/*/) == null) {
+      this.msg = "Only images are supported";
+      return;
+    }
+
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+
+    reader.onload = (_event) => {
+      this.msg = "";
+      this.url = reader.result;
+    }
   }
 }
 

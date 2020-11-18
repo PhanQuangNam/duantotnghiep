@@ -1,78 +1,104 @@
 <div class="main-content">
-    <div class="panel-body widget-shadow">
-        <div class="forms">
-            <h2 class="title1">Sửa sản phẩm</h2>
-            <div class="form-grids widget-shadow">
-                <div class="row p-5" *ngIf="Sanpham">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label >ID sản phẩm</label>
-                                <input type="text" class="form-control1" [(ngModel)]="Sanpham.product_id" name="product_id" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label >Tên sản phẩm</label>
-                                <input type="text" class="form-control1" [(ngModel)]="Sanpham.product_name" name="product_name">
-                            </div>
-                            <div class="form-group">
-                                <label >Giá sản phẩm</label>
-                                <input type="text" class="form-control1" [(ngModel)]="Sanpham.product_price" name="product_price">
-                            </div>
-                            <div class="form-group">
-                                <label >Thể loại</label>
-                                <select [(ngModel)]="CategorySelected" (ngModelChange)="onCategorySelected($event)" class="custom-select" name="Category" required>
-                                    <option selected>Lựa chọn</option>
-                                    <option *ngFor="let c of Category" [ngValue]="c" >{{c.category_name}}</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label >Size</label>
-                                    <select [(ngModel)]="SizeSelected" (ngModelChange)="onSizeSelected($event)" class="custom-select" name="Size" required>
-                                        <option selected>Lựa chọn</option>
-                                        <option *ngFor="let s of Size" [ngValue]="s" >{{s.size_name}}</option>
-                                    </select>
-                            </div>
-
-                        </div>
-                        <div class="col-sm-6">
-<!--                             <div class="form-group">-->
-<!--                                <label for="exampleInputFile">Chọn ảnh</label>-->
-<!--                                <input type="file" id="exampleInputFile">-->
-<!--                                <p class="help-block">Example block-level help text here.</p>-->
-<!--                            </div>-->
-                            <div class="form-group">
-                                <label>img</label>
-                                <input type="text" class="form-control1" [(ngModel)]="Sanpham.product_img" name="product_img" >
-                            </div>
-
-                            <div class="form-group">
-                                <label >Số lượng sản phẩm</label>
-                                <input type="text" class="form-control1" [(ngModel)]="Sanpham.product_amount" name="product_amount" >
-                            </div>
-                            <div class="form-group">
-                                <label >Stock sản phẩm</label>
-                                <input type="text" class="form-control1"  [(ngModel)]="Sanpham.product_stock" name="product_stock">
-                            </div>
-                            <div class="form-group">
-                                <label >Trạng thái sản phẩm</label>
-                                <input type="text" class="form-control1" [(ngModel)]="Sanpham.product_status" name="product_status" >
-                            </div>
-                            <div class="form">
-                                <label >Mô tả sản phẩm</label>
-                                <input type="text" class="form-control1"  [(ngModel)]="Sanpham.product_description" name="product_description">
-                            </div>
-                        </div>
-
-                        <div class="container-fluid mt-3" >
-                            <div class="row d-flex justify-content-end">
-                              <div class="col-md-3">
-                                <button type="button" class="btn btn-danger mr-3" routerLink="/dashboard/quanly-sanpham">Hủy</button>
-                                <button type="button" class="btn btn-primary" (click)="save()">Cập nhật</button>
-                              </div>
-                            </div>
-                        </div>
-                </div>
+  <div class="panel-body widget-shadow">
+    <div class="forms">
+      <h2 class="title1">Sửa sản phẩm</h2>
+      <div class="form-grids widget-shadow">
+        <form *ngIf="Products">
+          <div class="row p-5">
+            <div class="col-sm-4">
+              <div style="text-align:center">
+                <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
+                <div><img [src]="url" *ngIf="url" height="200" class="mb-3"></div>
+                <p>
+                  <input type="file" (change)="selectFile($event)">
+                </p>
+              </div>
             </div>
-        </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label >ID sản phẩm</label>
+                <input type="text" class="form-control1" name="product_id" [(ngModel)]="Products.product_id" readonly>
+              </div>
+              <div class="form-group">
+                <label >Tên sản phẩm</label>
+                <input type="text" class="form-control1" name="product_name" [(ngModel)]="Products.product_name">
+              </div>
+              <div class="form-group">
+                <label >Giá sản phẩm</label>
+                <input type="text" class="form-control1" name="product_price" [(ngModel)]="Products.product_price">
+              </div>
+              <div class="form-group">
+                <label>Thể loại</label>
+                <select [(ngModel)]="CategorySelected" (ngModelChange)="onCategorySelected($event)" class="custom-select" name="category_id" >
+                  <option value="1" [(ngModel)]="Products.category_id" name="category_id">Áo câu lạc bộ</option>
+                  <option value="2" [(ngModel)]="Products.category_id" name="category_id">Áo đội tuyển quốc gia</option>
+                  <option value="3" [(ngModel)]="Products.category_id" name="category_id">Áo không logo</option>
+                  <option value="4" [(ngModel)]="Products.category_id" name="category_id">Áo dài tay</option>
+                  <option value="5" [(ngModel)]="Products.category_id" name="category_id">Áo khoác</option>
+                  <option value="6" [(ngModel)]="Products.category_id" name="category_id">Phụ kiện</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label >Số lượng sản phẩm</label>
+                <input type="number" class="form-control1" name="product_amount" [(ngModel)]="Products.product_amount">
+              </div>
+              <div class="form-group">
+                <label >Size</label><br/>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="product_size" value="S" [(ngModel)]="Products.product_size">
+                  <label class="form-check-label" >S</label>
+                </div>
+                <div class="form-check form-check-inline mb-2">
+                  <input class="form-check-input" type="radio" name="product_size"  value="M" [(ngModel)]="Products.product_size">
+                  <label class="form-check-label" >M</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="product_size" value="L" [(ngModel)]="Products.product_size">
+                  <label class="form-check-label" >L</label>
+                </div>
+                <div class="form-check form-check-inline mb-2">
+                  <input class="form-check-input" type="radio" name="product_size"  value="XL" [(ngModel)]="Products.product_size">
+                  <label class="form-check-label" >XL</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="product_size"  value="XXl" [(ngModel)]="Products.product_size">
+                  <label class="form-check-label" >XXl</label>
+                </div>
+              </div>
+              <!--            <div class="form-group">-->
+              <!--              <label class="mb-2">Trạng thái sản phẩm</label><br/>-->
+              <!--              <div class="form-check form-check-inline">-->
+              <!--                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">-->
+              <!--                <label class="form-check-label" for="inlineRadio1">Còn hàng</label>-->
+              <!--              </div>-->
+              <!--              <div class="form-check form-check-inline mb-2">-->
+              <!--                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">-->
+              <!--                <label class="form-check-label" for="inlineRadio2">Hết hàng</label>-->
+              <!--              </div>-->
+              <!--            </div>-->
+              <div class="form">
+                <label >Mô tả</label>
+                <textarea class="form-control" [(ngModel)]="Products.product_description" name="product_description" required></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid mt-3" >
+            <div class="row d-flex justify-content-end">
+              <div class="col-md-3">
+                <button type="button" class="btn btn-danger mr-3" routerLink="/dashboard/quanly-sanpham">Hủy</button>
+                <button type="submit" class="btn btn-primary" (click)="save()">Cập nhật</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
+
+
+
+
 
